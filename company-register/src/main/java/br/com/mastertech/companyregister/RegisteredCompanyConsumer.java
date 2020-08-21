@@ -15,7 +15,7 @@ public class RegisteredCompanyConsumer {
     public static final String CSV_FILE_NAME = "registered_companies.csv";
 
     @KafkaListener(topics = "spec4-felipe-gabriel-1", groupId = "felioso")
-    public void receive(@Payload RegisteredCompany registeredCompany) throws IOException {
+    public void receiveAndWriteCsv(@Payload RegisteredCompany registeredCompany) throws IOException {
         CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE_NAME, true));
         String registeredCompanyData = new StringBuilder()
                 .append(registeredCompany.getId())
@@ -27,4 +27,5 @@ public class RegisteredCompanyConsumer {
         writer.writeNext(registeredCompanyData.split(","));
         writer.close();
     }
+
 }

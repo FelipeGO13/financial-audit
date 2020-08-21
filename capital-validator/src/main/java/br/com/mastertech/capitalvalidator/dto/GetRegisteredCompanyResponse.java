@@ -1,7 +1,6 @@
 package br.com.mastertech.capitalvalidator.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.validator.constraints.br.CNPJ;
 
 public class GetRegisteredCompanyResponse {
 
